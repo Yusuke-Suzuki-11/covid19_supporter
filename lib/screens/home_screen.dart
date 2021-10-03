@@ -1,4 +1,5 @@
 import 'package:covid19_supporter/config/palette.dart';
+import 'package:covid19_supporter/config/styles.dart';
 import 'package:covid19_supporter/widgets/custom_app_bar.dart';
 import 'package:covid19_supporter/widgets/country_dropdown.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,11 @@ class HomeScreen extends ConsumerWidget{
             bottomRight: Radius.circular(40.0),
           ),
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
                 Text(
                   'COVID-19',
                   style: const TextStyle(
@@ -60,7 +63,93 @@ class HomeScreen extends ConsumerWidget{
                   ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
                 ),
               ],
-        )
+            ),
+            SizedBox(
+              height: screenHeight * 0.03,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Are you feeling sick?',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600
+                  ),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
+                Text(
+                  'if you feel sick with any COVID-19 symptoms, please call or text us immediately for help',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.03
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton.icon(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                        padding: MaterialStateProperty.all(
+                          EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20
+                          )
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)
+                          )
+                        ),
+                      ),
+                      onPressed: (){},
+                      icon: const Icon(
+                        Icons.phone,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Call now',
+                        style: Styles.buttonTextStyle,
+                      ),
+                    ),
+                    TextButton.icon(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.green),
+                        padding: MaterialStateProperty.all(
+                          EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20
+                          )
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)
+                          )
+                        ),
+                      ),
+                      onPressed: (){},
+                      icon: const Icon(
+                        Icons.chat_bubble,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Send SMS',
+                        style: Styles.buttonTextStyle,
+                      ),
+                    )
+                  ]
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
