@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 class CountryNotifier extends StateNotifier<String>{
-  CountryNotifier() : super('');
+  CountryNotifier() : super('USA');
   
   void setState(String value){
     state = value;
@@ -17,7 +17,6 @@ class CountryNotifier extends StateNotifier<String>{
 final countryProvider = StateNotifierProvider<CountryNotifier, String>((ref) => CountryNotifier());
 
 class HomeScreen extends ConsumerWidget{
-  String _country = 'USA';
   
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -59,8 +58,6 @@ class HomeScreen extends ConsumerWidget{
                 ),
                 ConutryDropdown(
                   ['CN', 'FR', 'IN', 'IT', 'UK', 'USA'],
-                  _country,
-                  (val) => countryProvider.setState(val)
                 ),
               ],
         )
