@@ -22,22 +22,21 @@ class HomeScreen extends ConsumerWidget{
   
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final test = context.read(countryProvider.notifier);
-    print(test);
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: CustomAppBar(),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
-          _buildHeader(screenHeight, context.read(countryProvider.notifier)),
-          _buildPreventionTips(screenHeight)
+          _buildHeader(screenHeight),
+          _buildPreventionTips(screenHeight),
+          _buildYourOwnTest(screenHeight),
         ],
       )
     );
   }
   
-  SliverToBoxAdapter _buildHeader(double screenHeight, CountryNotifier countryProvider){
+  SliverToBoxAdapter _buildHeader(double screenHeight){
     return SliverToBoxAdapter(
       child: Container(
         padding: const EdgeInsets.all(20),
@@ -198,6 +197,54 @@ class HomeScreen extends ConsumerWidget{
               ).toList(),
             )
           ],
+        )
+      )
+    );
+  }
+  
+  SliverToBoxAdapter _buildYourOwnTest(double screenHeight){
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20
+        ),
+        padding: const EdgeInsets.all(10.0),
+        height: screenHeight * 0.15,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
+          ),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Image.asset('assets/images/own_test.png'),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Do your own test!',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.01),
+                Text(
+                  'Follow the instructions\nto do your own test.',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                  maxLines: 2,
+                ),
+              ],
+            ),
+          ]
         )
       )
     );
