@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Styles {
   static const TextStyle buttonTextStyle = TextStyle(
     color: Colors.white,
-    fontSize: 16.0,
+    fontSize: 18.0,
     fontWeight: FontWeight.w600,
   );
   

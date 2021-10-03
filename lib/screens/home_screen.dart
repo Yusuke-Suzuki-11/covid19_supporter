@@ -1,5 +1,6 @@
 import 'package:covid19_supporter/config/palette.dart';
 import 'package:covid19_supporter/config/styles.dart';
+import 'package:covid19_supporter/data/data.dart';
 import 'package:covid19_supporter/widgets/custom_app_bar.dart';
 import 'package:covid19_supporter/widgets/country_dropdown.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,8 @@ class HomeScreen extends ConsumerWidget{
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
-          _buildHeader(screenHeight, context.read(countryProvider.notifier))
+          _buildHeader(screenHeight, context.read(countryProvider.notifier)),
+          _buildPreventionTips(screenHeight)
         ],
       )
     );
@@ -151,6 +153,53 @@ class HomeScreen extends ConsumerWidget{
           ],
         ),
       ),
+    );
+  }
+  
+  SliverToBoxAdapter _buildPreventionTips(screenHeight){
+    return SliverToBoxAdapter(
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Prevention Tips",
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600
+              ),
+            ),
+            const SizedBox(
+              height: 20
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: prevention.map(
+                (e) => Column(
+                  children: [
+                    Image.asset(
+                      e.keys.first,
+                      height: screenHeight * 0.12,
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.015
+                    ),
+                    Text(
+                      e.values.first,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500
+                      ),
+                      textAlign: TextAlign.center
+                    )
+                  ],
+                )
+              ).toList(),
+            )
+          ],
+        )
+      )
     );
   }
 }
