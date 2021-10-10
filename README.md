@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-## versions
+## 環境
 - Flutter 2.5.2（2021/10/10最新バージョン）
 - Dart 2.14.3
 - xcode 12.5使用
@@ -14,5 +14,5 @@ A new Flutter project.
 - Android ^6.0
 
 
-## API end point
+## APIエンドポイント
 - https://github.com/ryo-ma/covid19-japan-web-api
