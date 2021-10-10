@@ -2,15 +2,17 @@
 
 A new Flutter project.
 
-## Getting Started
+## versions
+- Flutter 2.5.2（2021/10/10最新バージョン）
+- Dart 2.14.3
+- xcode 12.5使用
+- Android Studio 4.2 RC1
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+##対応OS
+- ios ^11.0
+- Android ^6.0
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## API end point
+- https://github.com/ryo-ma/covid19-japan-web-api
