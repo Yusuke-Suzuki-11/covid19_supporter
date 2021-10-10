@@ -15,9 +15,7 @@ class MyApp extends ConsumerWidget {
         scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      routes: {
-        '/': (context) => HomePage(),
-      },
+      home: HomePage(),
     );
   }
 }

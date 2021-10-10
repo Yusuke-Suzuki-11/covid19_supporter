@@ -23,6 +23,17 @@ class Client{
     return list;
   }
   
+  static void getTestButton() async {
+    String json = await _getData(ApiEndpoints.prefecturesTodaysData);
+    List data = jsonDecode(json);
+    List<Widget> list = [];
+    
+    // for (Map<String, dynamic> item in data) {
+    //   list.add(_getListItem(item['name_ja'].toString(), item['cases']));
+    // }
+    
+  }
+  
   static Widget _getListItem(String name, int number){
     return Container(
       child: Row(

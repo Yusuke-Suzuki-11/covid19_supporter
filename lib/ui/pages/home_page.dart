@@ -1,7 +1,3 @@
-
-
-import 'dart:js';
-
 import 'package:covid19_supporter/config/api_endpoints.dart';
 import 'package:covid19_supporter/repository/api/today_prefectures_client.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +8,14 @@ class HomePage extends ConsumerWidget{
   Widget build(BuildContext context, ScopedReader watch) {
     return Scaffold(
       appBar: _getAppBar(),
-      body: ListView(
-        children: FutureBuilder(
-          future: Client.getTest(),
-          builder: (context, snapShot){
-            return SizedBox();
+      body: FutureBuilder(
+        future: Client.getTest(),
+        builder: (context, AsyncSnapshot<List<Widget>> snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return CircularProgressIndicator();
           }
-        ),
+          return ListView(children: snapshot.data!);
+        }
       )
     );
   }
@@ -30,11 +27,9 @@ class HomePage extends ConsumerWidget{
       leading: IconButton(
         icon: Icon(Icons.chat_bubble),
         onPressed: () {
-          // Client.getTest();
+          Client.getTestButton();
         },
       ),
     );
   }
-  
-  
 }
