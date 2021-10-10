@@ -9,7 +9,7 @@ A new Flutter project.
 - Android Studio 4.2 RC1
 
 
-##対応OS
+## 対応OS
 - ios ^11.0
 - Android ^6.0
 
