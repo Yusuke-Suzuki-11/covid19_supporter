@@ -1,4 +1,4 @@
-# covid19_supporter
+# コロナのリアルタイムデータをグラフでお知らせ
 
 A new Flutter project.
 
