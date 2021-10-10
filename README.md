@@ -1,6 +1,6 @@
 # コロナのリアルタイムデータをグラフでお知らせ
 
-A new Flutter project.
+
 
 ## 環境
 - Flutter 2.5.2（2021/10/10最新バージョン）
@@ -9,9 +9,11 @@ A new Flutter project.
 - Android Studio 4.2 RC1
 
 
+
 ## 対応OS
 - ios ^11.0
 - Android ^6.0
+
 
 
 ## APIエンドポイント
