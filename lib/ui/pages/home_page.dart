@@ -10,30 +10,35 @@ class HomePage extends ConsumerWidget{
   Widget build(BuildContext context, ScopedReader watch) {
     return Scaffold(
       appBar: CustomAppBar(),
-      body: Column(
-        children: [
-          // SliverToBoxAdapter(
-          //   child: Container(
-          //     padding: const EdgeInsets.all(20),
-          //     decoration: BoxDecoration(
-          //       color: Palette.primaryColor,
-          //       borderRadius: BorderRadius.only(
-          //         bottomLeft: Radius.circular(40),
-          //         bottomRight: Radius.circular(40),
-          //       )
-          //     ),
-          //   ),
-          // ),
-          FutureBuilder(
-            future: Client.getTest(),
-            builder: (context, AsyncSnapshot<List<Widget>> snapshot){
-              if(snapshot.connectionState == ConnectionState.waiting){
-                return CircularProgressIndicator();
+      body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
+        slivers: [
+         Column(
+          children: [
+            // SliverToBoxAdapter(
+            //   child: Container(
+            //     padding: const EdgeInsets.all(20),
+            //     decoration: BoxDecoration(
+            //       color: Palette.primaryColor,
+            //       borderRadius: BorderRadius.only(
+            //         bottomRight: Radius.circular(40),
+            //         bottomLeft: Radius.circular(40),
+            //       )
+            //     ),
+            //   ),
+            // ),
+            FutureBuilder(
+              future: Client.getTest(),
+              builder: (context, AsyncSnapshot<List<Widget>> snapshot){
+                if(snapshot.connectionState == ConnectionState.waiting){
+                  return CircularProgressIndicator();
+                }
+                return Flexible(child: ListView(children: snapshot.data!));
               }
-              return ListView(children: snapshot.data!);
-            }
-          ),
-        ],
+            ),
+          ],
+        ),
+        ]
       )
     );
   }

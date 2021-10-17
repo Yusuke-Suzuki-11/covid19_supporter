@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomAppBar extends ConsumerWidget with PreferredSizeWidget{
-  
+  CustomAppBar({ this.interface});
+  String? interface;
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     return AppBar(
